@@ -1,0 +1,118 @@
+html {
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  background: #003366;
+  position: relative;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cf:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.greeting {
+  text-align: center;
+  margin-top: 60px;
+  opacity: 0.9;
+}
+
+.logo {
+  font-family: 'Indie Flower', cursive;
+  font-size: 2.7em;
+  letter-spacing: 6px;
+  margin: 0.5em 0;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  font-weight: 400;
+  letter-spacing: 0.5px;  font-family: 'Indie Flower', cursive;
+}
+
+.audio-control {
+  position: fixed;
+  top: 60px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.audio-control:hover {
+  cursor: pointer;
+}
+
+.audio-control.control-unmute {
+  opacity: 0.7;
+}
+
+.audio-control img {
+  max-width: 100%
+}
+
+.sound-node-list {
+  padding: 0;
+  margin: 50px 0;
+}
+
+.sound-node {
+  list-style-type: none; 
+  float: left;
+  clear: none;
+  width: 30.3%;
+  margin: 0 3% 0 0;
+  text-align: center;
+  padding: 70px 0;
+}
+
+.sound-node.active .sound-icon {
+  opacity: 1;
+}
+
+.sound-icon {
+  max-width: 100px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.volume-slider {
+  visibility: hidden;
+}
+
+.sound-node.active .volume-slider  {
+  visibility: visible;
+}
+
+/* Volume Slider */
+.ui-widget-content {
+  background: white;
+  height: 2px;
+  max-width: 70%;
+  margin: 40px auto 0;
+}
+.ui-widget.ui-widget-content {
+  border: none;
+}
+.ui-state-default, 
+.ui-widget-content .ui-state-default, 
+.ui-widget-header .ui-state-default, 
+.ui-button, 
+html .ui-button.ui-state-disabled:hover, 
+html .ui-button.ui-state-disabled:active {
+  border: none;
+  background: white;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  outline: none;
+  margin-top: -2px;
+}
