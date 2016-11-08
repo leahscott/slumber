@@ -10,24 +10,33 @@ var SoundNode = React.createClass({
 
   getInitialState : function() {
     return {
-      isActive : false
+      isActive : false,
+      play: false
     };
   },
 
-  toggleActive : function(e) {
+  toggleActive : function() {
     var newValue = (this.state.isActive ? false : true);
     this.setState({ isActive: newValue });
   },
 
+  handleClick: function(e) {
+    this.toggleActive();
+    this.setState({ play: !this.state.play })
+  },
+
   render: function () {
-    var name = this.props.name;
-    var classList = "cf sound-node " + name.toLowerCase();
+    var name = this.props.name,
+        playStatus = this.state.play ? 'PLAYING' : 'PAUSED',
+        classList = "cf sound-node " + name.toLowerCase();
+
     classList += this.state.isActive ? ' active' : '';
+
     return (
       <li className={classList} >
-        <img className="sound-icon" src={this.props.iconSrc} alt={name} onClick={this.toggleActive}/>
+        <img className="sound-icon" src={this.props.iconSrc} alt={name} onClick={this.handleClick} />
         <div className={"volume-slider " + name.toLowerCase() + "-slider"}></div>
-        <Sound url={this.props.audioSrc} playStatus="PLAYING" />
+        <Sound url={this.props.audioSrc} playStatus={playStatus} />
       </li>
     );
   }
