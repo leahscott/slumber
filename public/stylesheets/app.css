@@ -84,35 +84,30 @@ html {
   opacity: 0.5;
 }
 
-.volume-slider {
+.rc-slider {
   visibility: hidden;
 }
 
-.sound-node.active .volume-slider  {
+.sound-node.active .rc-slider  {
   visibility: visible;
 }
 
 /* Volume Slider */
-.ui-widget-content {
+.rc-slider {
   background: white;
   height: 2px;
   max-width: 70%;
   margin: 40px auto 0;
+  position: relative;
 }
-.ui-widget.ui-widget-content {
-  border: none;
-}
-.ui-state-default, 
-.ui-widget-content .ui-state-default, 
-.ui-widget-header .ui-state-default, 
-.ui-button, 
-html .ui-button.ui-state-disabled:hover, 
-html .ui-button.ui-state-disabled:active {
-  border: none;
+
+.rc-slider-handle {
+  height: 14px;
+  width: 14px;
   background: white;
-  width: 17px;
-  height: 17px;
   border-radius: 50%;
-  outline: none;
-  margin-top: -2px;
+  position: absolute;
+  cursor: pointer;
+  margin-top: -6px;
+  margin-left: -7px;
 }

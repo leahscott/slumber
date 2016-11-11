@@ -10,7 +10,7 @@ var AudioControls = React.createClass({
   toggleMute: function() {
     this.setState({ muted: !this.state.muted });
   },
-  
+
   render: function () {
     var actions = {
       mute: {

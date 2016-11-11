@@ -1,5 +1,6 @@
 import React from 'react';
 import Sound from 'react-sound';
+import Slider from './Slider';
 
 var SoundNode = React.createClass({
   propTypes: {
@@ -11,7 +12,8 @@ var SoundNode = React.createClass({
   getInitialState : function() {
     return {
       isActive : false,
-      play: false
+      isPlaying: false,
+      volume: 50
     };
   },
 
@@ -22,21 +24,27 @@ var SoundNode = React.createClass({
 
   handleClick: function(e) {
     this.toggleActive();
-    this.setState({ play: !this.state.play })
+    this.setState({ isPlaying: !this.state.isPlaying });
+  },
+
+  setVolume: function(value) {
+    this.setState({
+      "volume": value
+    });
   },
 
   render: function () {
     var name = this.props.name,
-        playStatus = this.state.play ? 'PLAYING' : 'PAUSED',
+        playStatus = this.state.isPlaying ? 'PLAYING' : 'PAUSED',
         classList = "cf sound-node " + name.toLowerCase();
 
     classList += this.state.isActive ? ' active' : '';
 
     return (
-      <li className={classList} >
+      <li className={classList}>
         <img className="sound-icon" src={this.props.iconSrc} alt={name} onClick={this.handleClick} />
-        <div className={"volume-slider " + name.toLowerCase() + "-slider"}></div>
-        <Sound url={this.props.audioSrc} playStatus={playStatus} />
+        <Sound url={this.props.audioSrc} playStatus={playStatus} volume={this.state.volume} />
+        <Slider key={name} volume={this.state.volume} setVolume={this.setVolume} />
       </li>
     );
   }
